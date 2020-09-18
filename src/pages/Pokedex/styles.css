@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  height: 100%;
 }
 
 .pokedex-container {
@@ -36,10 +37,8 @@
 .pokedex-info-data {
   width: 100%;
   height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  /* display: inline-grid;
+  padding: 0 6rem; */
 }
 
 .pokedex-data-title {
@@ -55,6 +54,7 @@
   width: 100%;
   height: 50%;
   text-align: center;
+  display: inline-grid;
 }
 
 .pokedex-data-button-div {
@@ -71,9 +71,10 @@
     inset -7px -7px 20px rgba(255, 255, 255, 0),
     0px 0px 4px rgba(255, 255, 255, 0) !important;
   border: none;
-  width: 40%;
+  width: 11%;
+  height: 30%;
   background-color: #ebecf0;
-  border-radius: 2rem;
+  border-radius: 50%;
   color: #6d7587;
   font-size: 1rem;
   padding: 1rem 2rem;
@@ -99,16 +100,104 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: auto;
   /* z-index: 1; */
 }
 
 .pokedex-image {
+  height: 65%;
 }
 
-.pokedex-image-button-div {
+/* For Background Color */
+.fire {
+  background-color: #fddfdf;
+}
+.grass {
+  background-color: #99ffa0;
+}
+.electric {
+  background-color: #fff0a7;
+}
+.water {
+  background-color: #94ddff;
+}
+.ground {
+  background-color: #ffd4a9;
+}
+.rock {
+  background-color: #ffffb5;
+}
+.fairy {
+  background-color: #f6c0ff;
+}
+.poison {
+  background-color: #98d7a5;
+}
+.bug {
+  background-color: #f8d5a3;
+}
+.dragon {
+  background-color: #97b3e6;
+}
+.psychic {
+  background-color: #eaeda1;
+}
+.flying {
+  background-color: #f5f5f5;
+}
+.fighting {
+  background-color: #e5cd9d;
+}
+.normal {
+  background-color: #f5f5f5;
+}
+.dark {
+  background-color: #7e7b7b;
+  color: white;
 }
 
-.pokedex-image-button {
+/* Text Color */
+.fire-color {
+  color: #ff8181;
+}
+.grass-color {
+  color: #088610;
+}
+.electric-color {
+  color: #ffea82;
+}
+.water-color {
+  color: #81d7ff;
+}
+.ground-color {
+  color: #ffa347;
+}
+.rock-color {
+  color: #d1d127;
+}
+.fairy-color {
+  color: #ed86ff;
+}
+.poison-color {
+  color: #22d646;
+}
+.bug-color {
+  color: #f8d5a3;
+}
+.dragon-color {
+  color: #759ce4;
+}
+.psychic-color {
+  color: #e2e677;
+}
+.flying-color {
+  color: #f19393;
+}
+.fighting-color {
+  color: #e2bf79;
+}
+.normal-color {
+  color: #a75656;
+}
+.dark-color {
+  color: #1d1d1d;
 }
