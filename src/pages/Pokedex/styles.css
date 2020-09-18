@@ -1,46 +1,113 @@
+* {
+  margin: 0;
+}
+
 .pokedex-container {
   display: flex;
   flex-direction: row;
+  margin: 0;
+  /* height: 100%; */
 }
 
 .pokedex-info-container {
   background: #ffffff;
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-  width: 40%;
-  height: 100%;
+  width: 35%;
+  background-color: #ebecf0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+
+  /* height: 100%; */
 }
 
 .pokedex-info-title {
   width: 100%;
   height: 20%;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Libre Baskerville", serif;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
 }
 
 .pokedex-info-data {
   width: 100%;
   height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .pokedex-data-title {
   width: 100%;
   height: 20%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "Libre Baskerville", serif;
 }
 
 .pokedex-data-data {
   width: 100%;
   height: 50%;
+  text-align: center;
+}
+
+.pokedex-data-button-div {
+  width: 100%;
+  height: 30%;
+  text-align: center;
 }
 
 .pokedex-data-button {
-  width: 100%;
-  height: 30%;
+  box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),
+    -7px -7px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0.2),
+    inset 7px 7px 15px rgba(55, 84, 170, 0),
+    inset -7px -7px 20px rgba(255, 255, 255, 0),
+    0px 0px 4px rgba(255, 255, 255, 0) !important;
+  border: none;
+  width: 40%;
+  background-color: #ebecf0;
+  border-radius: 2rem;
+  color: #6d7587;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  outline: none;
+  transition: box-shadow 0.25s ease !important;
+}
+
+.pokedex-data-button:active {
+  box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),
+    -7px -7px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0),
+    inset 7px 7px 15px rgba(55, 84, 170, 0.15),
+    inset -7px -7px 20px rgba(255, 255, 255, 1),
+    0px 0px 4px rgba(255, 255, 255, 0.2) !important;
 }
 
 .pokedex-image-container {
-  width: 60%;
-  background-color: red;
+  width: 65%;
+  background-image: url("../../assets/7758.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  /* z-index: 1; */
 }
 
 .pokedex-image {
+}
+
+.pokedex-image-button-div {
 }
 
 .pokedex-image-button {

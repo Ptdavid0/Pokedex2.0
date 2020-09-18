@@ -5,6 +5,7 @@ import api from '../../services/api';
 
 interface Pokemon {
   name:String
+  id:number
 }
 
 const Pokedex: React.FC = () => {
@@ -25,17 +26,23 @@ const Pokedex: React.FC = () => {
           <div className="pokedex-info-title">pokemon.</div>
 
           <div className="pokedex-info-data">
-  <div className="pokedex-data-title">{pokemon && pokemon.name}</div>
+            <div className="pokedex-data-title">Atributes facts.</div>
             <div className="pokedex-data-data"></div>
-            <div className="pokedex-data-button"></div>
+            <div className="pokedex-data-button-div">
+            <button className="pokedex-data-button">Press Me</button>
+            </div>
           </div>
 
         </div>
 
         <div className="pokedex-image-container">
 
-          <div className="pokedex-image"></div>
-          <div className="pokedex-image-button"></div>
+          <div className="pokedex-image">
+            <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon && pokemon.id}.png`} alt=""/>
+          </div>
+          <div className="pokedex-image-button-div">
+            <button className=""></button>
+          </div>
 
         </div>
       </div>
