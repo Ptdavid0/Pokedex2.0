@@ -3,11 +3,15 @@
   height: 100%;
 }
 
+@font-face {
+  font-family: NunitoFont;
+  src: url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
+}
+
 .pokedex-container {
   display: flex;
   flex-direction: row;
   margin: 0;
-  /* height: 100%; */
 }
 
 .pokedex-info-container {
@@ -20,8 +24,6 @@
   align-items: center;
   flex-direction: column;
   z-index: 2;
-
-  /* height: 100%; */
 }
 
 .pokedex-info-title {
@@ -29,7 +31,6 @@
   height: 20%;
   font-size: 2rem;
   font-weight: bold;
-  font-family: "Libre Baskerville", serif;
   padding: 2rem 3rem;
   box-sizing: border-box;
 }
@@ -37,30 +38,31 @@
 .pokedex-info-data {
   width: 100%;
   height: 80%;
-  /* display: inline-grid;
-  padding: 0 6rem; */
 }
 
 .pokedex-data-title {
   width: 100%;
-  height: 20%;
+  height: 15%;
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  font-family: "Libre Baskerville", serif;
+  font-size: 3rem;
+  font-weight: 800;
 }
 
 .pokedex-data-data {
   width: 100%;
   height: 50%;
-  text-align: center;
-  display: inline-grid;
+  text-align: start;
+  margin: 0 25% 0rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .pokedex-data-button-div {
-  width: 100%;
   height: 30%;
-  text-align: center;
+  margin: 0 30%;
+  height: 35%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .pokedex-data-button {
@@ -71,7 +73,8 @@
     inset -7px -7px 20px rgba(255, 255, 255, 0),
     0px 0px 4px rgba(255, 255, 255, 0) !important;
   border: none;
-  width: 11%;
+  text-align: center;
+  width: 30%;
   height: 30%;
   background-color: #ebecf0;
   border-radius: 50%;
@@ -93,18 +96,31 @@
 
 .pokedex-image-container {
   width: 65%;
-  background-image: url("../../assets/7758.jpg");
+  /* background-image: url("../../assets/pexels-lorenzo-242236.jpg"); */
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* z-index: 1; */
+}
+
+.pokedex-image-div {
+  display: contents;
+  z-index: 1;
 }
 
 .pokedex-image {
   height: 65%;
+  z-index: 1;
+  position: absolute;
+}
+
+.pokemon-image-name {
+  font-size: 10rem;
+  z-index: 0;
+  font-weight: 800;
+  opacity: 0.5;
 }
 
 /* For Background Color */
