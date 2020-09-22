@@ -1,71 +1,23 @@
 import React, { useEffect, useState } from "react";
 
 import "./styles.css";
-import api from "../../services/api";
-
-interface Pokemon {
-  name: String;
-  id: number;
-  height: number;
-  weight: number;
-  types: [];
-  abilities: [
-    {
-      ability: {
-        name: string;
-      };
-    }
-  ];
-  stats: [
-    {
-      base_stat: number;
-      stat: {
-        name: string;
-      };
-    },
-    {
-      base_stat: number;
-      stat: {
-        name: string;
-      };
-    },
-    {
-      base_stat: number;
-      stat: {
-        name: string;
-      };
-    },
-    {
-      base_stat: number;
-      stat: {
-        name: string;
-      };
-    },
-    {
-      base_stat: number;
-      stat: {
-        name: string;
-      };
-    },
-    {
-      base_stat: number;
-      stat: {
-        name: string;
-      };
-    }
-  ];
-}
+import { Pokemon } from "../../models/interface";
+import { getPokemon } from "../../services/api";
 
 const Pokedex: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon>();
   const [currentPokemonId, setCurrentPokemonId] = useState(1);
 
   useEffect(() => {
-    api.get(`${currentPokemonId}`).then((response) => {
-      console.log(response.data);
-      setPokemon(response.data);
-      handlePokemonTypes();
-    });
+    setPokemon(getPokemon(currentPokemonId));
+    handlePokemonTypes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setPokemon(getPokemon(currentPokemonId));
+    handlePokemonTypes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPokemonId]);
 
   const handlePokemonTypes = () => {
@@ -96,47 +48,24 @@ const Pokedex: React.FC = () => {
             <span>
               <strong>WEIGHT: {pokemon?.weight}</strong>
             </span>
-            <span>
-              <strong>
-                {pokemon?.stats[0].stat.name?.toUpperCase()}:{" "}
-                {pokemon?.stats[0].base_stat}
-              </strong>
-            </span>
-            <span>
-              <strong>
-                {pokemon?.stats[1].stat.name?.toUpperCase()}:{" "}
-                {pokemon?.stats[1].base_stat}
-              </strong>
-            </span>
-            <span>
-              <strong>
-                {pokemon?.stats[2].stat.name?.toUpperCase()}:{" "}
-                {pokemon?.stats[2].base_stat}
-              </strong>
-            </span>
-            <span>
-              <strong>
-                {pokemon?.stats[3].stat.name?.toUpperCase()}:{" "}
-                {pokemon?.stats[3].base_stat}
-              </strong>
-            </span>
-            <span>
-              <strong>
-                {pokemon?.stats[4].stat.name?.toUpperCase()}:{" "}
-                {pokemon?.stats[4].base_stat}
-              </strong>
-            </span>
-            <span>
-              <strong>
-                {pokemon?.stats[5].stat.name?.toUpperCase()}:{" "}
-                {pokemon?.stats[5].base_stat}
-              </strong>
-            </span>
+            {pokemon?.stats.map((stat, key) => {
+              return (
+                <span key={key}>
+                  <strong>
+                    {stat.stat.name.toUpperCase()}: {stat.base_stat}
+                  </strong>
+                </span>
+              );
+            })}
           </div>
           <div className="pokedex-data-button-div">
             <button
               className="pokedex-data-button"
-              onClick={() => setCurrentPokemonId(currentPokemonId - 1)}
+              onClick={() =>
+                currentPokemonId > 1
+                  ? setCurrentPokemonId(currentPokemonId - 1)
+                  : ""
+              }
             >
               <strong>{`<`}</strong>
             </button>
