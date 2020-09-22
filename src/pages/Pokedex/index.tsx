@@ -6,7 +6,7 @@ import { getPokemon } from "../../services/api";
 
 const Pokedex: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon>();
-  const [currentPokemonId, setCurrentPokemonId] = useState(1);
+  const [currentPokemonId, setCurrentPokemonId] = useState(0);
 
   useEffect(() => {
     setPokemon(getPokemon(currentPokemonId));
@@ -34,19 +34,28 @@ const Pokedex: React.FC = () => {
           </div>
           <div className="pokedex-data-data">
             <span>
-              <strong>ABILITY: {pokemon?.abilities[0].ability.name}</strong>
+              <p>
+                <strong>ABILITY: </strong>
+                {pokemon?.abilities[0].ability.name}
+              </p>
             </span>
             <span>
-              <strong>HEIGHT: {pokemon?.height}</strong>
+              <p>
+                <strong>HEIGHT: </strong>
+                {pokemon?.height}
+              </p>
             </span>
             <span>
-              <strong>WEIGHT: {pokemon?.weight}</strong>
+              <p>
+                <strong>WEIGHT: </strong>
+                {pokemon?.weight}
+              </p>
             </span>
             {pokemon?.stats.map((stat, key) => {
               return (
                 <span key={key}>
                   <p>
-                    <strong>{stat.stat.name.toUpperCase()}:</strong>
+                    <strong>{stat.stat.name.toUpperCase()}: </strong>
                     {stat.base_stat}
                   </p>
                 </span>

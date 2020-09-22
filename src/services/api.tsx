@@ -10,6 +10,8 @@ let data: Pokemon;
 export const getPokemon = (currentPokemonId: number) => {
   api.get(`${currentPokemonId}`).then((response) => {
     data = response.data;
+    console.log(currentPokemonId + ` - ${data.name}`);
+    console.log(data);
   });
   return data;
 };

@@ -49,7 +49,7 @@
 }
 
 .pokedex-data-data {
-  width: 100%;
+  width: 75%;
   height: 50%;
   text-align: start;
   margin: 0 25% 0rem;
@@ -165,7 +165,7 @@
   background-color: #e5cd9d;
 }
 .normal {
-  background-color: #f5f5f5;
+  background-color: #a87575;
 }
 .dark {
   background-color: #7e7b7b;
