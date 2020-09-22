@@ -117,9 +117,10 @@
 }
 
 .pokemon-image-name {
-  font-size: 10rem;
-  z-index: 0;
+  font-size: 12rem;
+  z-index: 1;
   font-weight: 800;
+  height: auto;
   opacity: 0.5;
 }
 

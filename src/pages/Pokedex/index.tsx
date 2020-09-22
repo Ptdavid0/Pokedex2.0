@@ -12,12 +12,6 @@ const Pokedex: React.FC = () => {
     setPokemon(getPokemon(currentPokemonId));
     handlePokemonTypes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    setPokemon(getPokemon(currentPokemonId));
-    handlePokemonTypes();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPokemonId]);
 
   const handlePokemonTypes = () => {
@@ -51,9 +45,10 @@ const Pokedex: React.FC = () => {
             {pokemon?.stats.map((stat, key) => {
               return (
                 <span key={key}>
-                  <strong>
-                    {stat.stat.name.toUpperCase()}: {stat.base_stat}
-                  </strong>
+                  <p>
+                    <strong>{stat.stat.name.toUpperCase()}:</strong>
+                    {stat.base_stat}
+                  </p>
                 </span>
               );
             })}
