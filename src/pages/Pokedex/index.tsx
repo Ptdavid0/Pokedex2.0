@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import "./styles.css";
 import { Pokemon } from "../../models/interface";
 import { getPokemon } from "../../services/api";

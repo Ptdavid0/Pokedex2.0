@@ -24,3 +24,11 @@ export interface Pokemon {
   abilities: Abilities[];
   stats: Stats[];
 }
+
+export interface PokemonAction {
+  type: string;
+  pokemon: Pokemon[];
+}
+export interface InitialPokemonState {
+  pokemon: Pokemon[];
+}
