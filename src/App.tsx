@@ -1,7 +1,7 @@
 import React from "react";
 import Pokedex from "./pages/Pokedex/index";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
+import { store } from "./store/index";
 
 function App() {
   return (
