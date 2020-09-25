@@ -18,11 +18,11 @@ export interface Abilities {
 export interface Pokemon {
   name: String;
   id: number;
-  height: number;
-  weight: number;
-  types: [];
-  abilities: Abilities[];
-  stats: Stats[];
+  height?: number;
+  weight?: number;
+  types?: [];
+  abilities?: Abilities[];
+  stats?: Stats[];
 }
 
 export interface PokemonAction {

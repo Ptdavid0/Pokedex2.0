@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { Pokemon } from "../../models/interface";
-import { getPokemon } from "../../services/api";
+import api from "../../services/api";
 
 const Pokedex: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon>();
-  const [currentPokemonId, setCurrentPokemonId] = useState(0);
+  const [currentPokemonId, setCurrentPokemonId] = useState(1);
 
   useEffect(() => {
-    setPokemon(getPokemon(currentPokemonId));
-    handlePokemonTypes();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    api.get(`${currentPokemonId}`).then((response) => {
+      setPokemon(response.data);
+    });
   }, [currentPokemonId]);
 
   const handlePokemonTypes = () => {
     const types =
       pokemon &&
+      pokemon.types &&
       pokemon.types.map((type: { type: { name: string } }) => {
         return type.type.name;
       });
@@ -35,7 +36,9 @@ const Pokedex: React.FC = () => {
             <span>
               <p>
                 <strong>ABILITY: </strong>
-                {pokemon?.abilities[0].ability.name}
+                {pokemon &&
+                  pokemon.abilities &&
+                  pokemon?.abilities[0].ability.name}
               </p>
             </span>
             <span>
@@ -50,16 +53,18 @@ const Pokedex: React.FC = () => {
                 {pokemon?.weight}
               </p>
             </span>
-            {pokemon?.stats.map((stat, key) => {
-              return (
-                <span key={key}>
-                  <p>
-                    <strong>{stat.stat.name.toUpperCase()}: </strong>
-                    {stat.base_stat}
-                  </p>
-                </span>
-              );
-            })}
+            {pokemon &&
+              pokemon.stats &&
+              pokemon?.stats.map((stat, key) => {
+                return (
+                  <span key={key}>
+                    <p>
+                      <strong>{stat.stat.name.toUpperCase()}: </strong>
+                      {stat.base_stat}
+                    </p>
+                  </span>
+                );
+              })}
           </div>
           <div className="pokedex-data-button-div">
             <button

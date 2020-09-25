@@ -15,3 +15,5 @@ export const getPokemon = (currentPokemonId: number) => {
   });
   return data;
 };
+
+export default api;
