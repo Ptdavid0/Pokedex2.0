@@ -1,17 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./styles.css";
 import { Pokemon } from "../../models/interface";
-import api from "../../services/api";
+import { useDispatch, useSelector } from "react-redux";
+import { changePokemonOnDisplay } from "../../store/modules/pokemon/actions";
+import { IState } from "../../store";
 
 const Pokedex: React.FC = () => {
-  const [pokemon, setPokemon] = useState<Pokemon>();
+  const pokemon = useSelector<IState, Pokemon>((state) => state.pokemon);
+  const dispatch = useDispatch();
   const [currentPokemonId, setCurrentPokemonId] = useState(1);
 
   useEffect(() => {
-    api.get(`${currentPokemonId}`).then((response) => {
-      setPokemon(response.data);
-    });
+    handlePokemonOnDisplay(currentPokemonId);
   }, [currentPokemonId]);
+
+  const handlePokemonOnDisplay = useCallback(
+    (id: number) => {
+      console.log("Hello");
+      dispatch(changePokemonOnDisplay(currentPokemonId));
+    },
+    [currentPokemonId, dispatch]
+  );
 
   const handlePokemonTypes = () => {
     const types =
@@ -79,7 +88,9 @@ const Pokedex: React.FC = () => {
             </button>
             <button
               className="pokedex-data-button"
-              onClick={() => setCurrentPokemonId(currentPokemonId + 1)}
+              onClick={() => {
+                setCurrentPokemonId(currentPokemonId + 1);
+              }}
             >
               <strong>{`>`}</strong>
             </button>
